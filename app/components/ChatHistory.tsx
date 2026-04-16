@@ -95,10 +95,10 @@ export default function ChatHistory({
           ) : (
             <ul className="space-y-1">
               {conversations.map((conv) => (
-                <li key={conv.id}>
+                <li key={conv.id} className="group relative">
                   <button
                     onClick={() => onSelect(conv)}
-                    className={`w-full text-left px-3 py-2.5 rounded-lg text-sm flex items-start gap-2 group transition-colors ${
+                    className={`w-full text-left px-3 py-2.5 rounded-lg text-sm flex items-start gap-2 transition-colors pr-8 ${
                       conv.id === activeId
                         ? "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300"
                         : "text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800"
@@ -114,16 +114,13 @@ export default function ChatHistory({
                         {formatDate(conv.updatedAt)}
                       </p>
                     </div>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onDelete(conv.id);
-                      }}
-                      aria-label={`Delete conversation: ${conv.title}`}
-                      className="p-1 rounded opacity-0 group-hover:opacity-100 hover:bg-red-100 dark:hover:bg-red-900/30 text-red-500 transition-all"
-                    >
-                      <Trash2 size={14} />
-                    </button>
+                  </button>
+                  <button
+                    onClick={() => onDelete(conv.id)}
+                    aria-label={`Delete conversation: ${conv.title}`}
+                    className="absolute right-1 top-1/2 -translate-y-1/2 p-1 rounded opacity-0 group-hover:opacity-100 hover:bg-red-100 dark:hover:bg-red-900/30 text-red-500 transition-all"
+                  >
+                    <Trash2 size={14} />
                   </button>
                 </li>
               ))}

@@ -37,7 +37,7 @@ A lightweight AI-powered chat application built with **Next.js**, **TypeScript**
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/ai-prompt-app.git
+git clone https://github.com/Poojitha-Manchi/ai-prompt-app.git
 cd ai-prompt-app
 ```
 
